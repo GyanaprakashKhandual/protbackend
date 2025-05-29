@@ -5,6 +5,10 @@ const app = express();
 app.use(cors());
 
 const restAssured = require('./RestAssured/restAssured.json');
+const cypress = require('./Cypress/cypress.json');
+app.get('/api/cypress', (req, res) => {
+  res.json(cypress);
+});
 
 app.get('/api/restAssured', (req, res) => {
   res.json(restAssured);
