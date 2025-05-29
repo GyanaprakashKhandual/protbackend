@@ -2,7 +2,12 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-app.use(cors());
+
+app.use(cors({
+  origin: ["http://localhost:3000", "https://codewithchris.vercel.app"],
+  credentials: true
+}));
+app.use(express.json());
 
 const restAssured = require('./RestAssured/restAssured.json');
 const cypress = require('./Cypress/cypress.json');
